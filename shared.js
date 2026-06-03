@@ -57,46 +57,6 @@ document.querySelectorAll('.fade-up-element').forEach(element => {
     fadeObserver.observe(element);
 });
 
-// === HIGH CONTRAST ACTIVE NAVBAR LINK HIGHLIGHTER ===
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-link');
-const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-function highlightNav() {
-    let scrollPos = window.scrollY || document.documentElement.scrollTop;
-    
-    sections.forEach(section => {
-        if (scrollPos >= section.offsetTop - 150 && scrollPos < section.offsetTop + section.offsetHeight - 150) {
-            const currentId = section.getAttribute('id');
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentId}`) {
-                    link.classList.add('active');
-                }
-            });
-            
-            mobileLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentId}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
-    
-    if (scrollPos < 100) {
-        navLinks.forEach(link => link.classList.remove('active'));
-        mobileLinks.forEach(link => link.classList.remove('active'));
-        const homeLink = document.querySelector('.nav-link[href="#hero"]');
-        const mobileHomeLink = document.querySelector('.mobile-nav-link[href="#hero"]');
-        if (homeLink) homeLink.classList.add('active');
-        if (mobileHomeLink) mobileHomeLink.classList.add('active');
-    }
-}
-
-window.addEventListener('scroll', highlightNav);
-
 // === UTILITY: Escape HTML ===
 function escapeHtml(text) {
     const map = {
@@ -122,10 +82,10 @@ function showSlides() {
     dots.forEach(dot => dot.classList.remove('active'));
 
     slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1; }
+    if (slideIndex > slides.length - 1) { slideIndex = 0; }
 
-    slides[slideIndex - 1].classList.add('active');
-    dots[slideIndex - 1].classList.add('active');
+    slides[slideIndex].classList.add('active');
+    dots[slideIndex].classList.add('active');
 }
 
 function startSlideInterval() {
@@ -137,6 +97,32 @@ function startSlideInterval() {
 function currentSlide(n) {
     clearInterval(slideInterval);
     slideIndex = n;
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    slides[slideIndex].classList.add('active');
+    dots[slideIndex].classList.add('active');
+    startSlideInterval();
+}
+
+function prevSlide() {
+    clearInterval(slideInterval);
+    slideIndex--;
+    if (slideIndex < 0) { slideIndex = slides.length - 1; }
+    
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    slides[slideIndex].classList.add('active');
+    dots[slideIndex].classList.add('active');
+    startSlideInterval();
+}
+
+function nextSlide() {
+    clearInterval(slideInterval);
+    slideIndex++;
+    if (slideIndex >= slides.length) { slideIndex = 0; }
+
     slides.forEach(slide => slide.classList.remove('active'));
     dots.forEach(dot => dot.classList.remove('active'));
 
@@ -386,7 +372,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     loadFeedbacks();
-    highlightNav();
 });
 
 window.handleFeedbackSubmit = handleFeedbackSubmit;

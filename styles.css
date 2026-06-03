@@ -459,26 +459,29 @@ section {
 /* === SLIDESHOW / BANNER === */
 .slideshow-section {
     width: 100%;
-    max-width: 1000px;
-    margin: 50px auto 0 auto;
+    max-width: 100%;
+    margin: 50px 0 0 0;
     position: relative;
-    padding: 0 20px;
+    padding: 0;
 }
 
 .slide-container {
     position: relative;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 0;
     background: var(--white);
-    border: 1px solid var(--border-gray);
-    box-shadow: var(--shadow-premium);
-    height: 450px;
+    border-top: 1px solid var(--border-gray);
+    border-bottom: 1px solid var(--border-gray);
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+    height: 550px;
     display: flex;
     align-items: center;
 }
 
 .slide {
-    padding: 48px;
+    padding: 48px 10%;
     opacity: 0;
     transform: translateX(-20px);
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);

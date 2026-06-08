@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 
   <!-- Preload hero images for smoother mobile slideshow -->
   <link rel="preload" as="image" href="public/1.jpeg">
@@ -2470,15 +2470,15 @@
             <p class="ccdesc">Students can submit project ideas. If the idea becomes a product that sells, the student
               may receive benefits or shares based on their contribution.</p>
             <form class="cform" id="idea-form" onsubmit="handleCareer(event,'idea-form')">
-              <div class="frow"><label for="idea-name">Student Name *</label><input type="text" id="idea-name" required
+              <div class="frow"><label for="idea-name">Student Name *</label><input type="text" id="idea-name" name="student_name" required
                   placeholder="Your full name"><span class="err" id="idea-name-err">Please enter your name</span></div>
-              <div class="frow"><label for="idea-email">Email ID *</label><input type="email" id="idea-email" required
+              <div class="frow"><label for="idea-email">Email ID *</label><input type="email" id="idea-email" name="student_email" required
                   placeholder="your.email@gmail.com"><span class="err" id="idea-email-err">Please enter a valid
                   email</span></div>
-              <div class="frow"><label for="idea-title">Project Title *</label><input type="text" id="idea-title"
+              <div class="frow"><label for="idea-title">Project Title *</label><input type="text" id="idea-title" name="project_title"
                   required placeholder="Name of your project idea"><span class="err" id="idea-title-err">Please enter
                   project title</span></div>
-              <div class="frow"><label for="idea-desc">Project Description *</label><textarea id="idea-desc" rows="4"
+              <div class="frow"><label for="idea-desc">Project Description *</label><textarea id="idea-desc" name="project_desc" rows="4"
                   required placeholder="Describe your project, features, and target audience..."></textarea><span
                   class="err" id="idea-desc-err">Please describe your project</span></div>
               <div class="frow"><label>Upload PDF Concept</label>
@@ -2486,7 +2486,7 @@
                       <path
                         d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z" />
                     </svg><span class="fultxt">Choose PDF file...</span></label>
-                  <input type="file" id="idea-file" accept=".pdf" class="fih">
+                  <input type="file" id="idea-file" name="pdf_file" accept=".pdf" class="fih">
                 </div>
               </div>
               <button type="submit" class="btn btn-o btn-full">Submit Idea &#x2192;</button>
@@ -2499,16 +2499,16 @@
             <p class="ccdesc">Join us as an engineer, technician, content creator, editor, marketer, project
               coordinator, or customer support executive.</p>
             <form class="cform" id="apply-form" onsubmit="handleCareer(event,'apply-form')">
-              <div class="frow"><label for="ap-name">Name *</label><input type="text" id="ap-name" required
+              <div class="frow"><label for="ap-name">Name *</label><input type="text" id="ap-name" name="applicant_name" required
                   placeholder="Your full name"><span class="err" id="ap-name-err">Please enter your name</span></div>
-              <div class="frow"><label for="ap-email">Email ID *</label><input type="email" id="ap-email" required
+              <div class="frow"><label for="ap-email">Email ID *</label><input type="email" id="ap-email" name="applicant_email" required
                   placeholder="your.email@gmail.com"><span class="err" id="ap-email-err">Please enter a valid
                   email</span></div>
-              <div class="frow"><label for="ap-phone">Contact Number *</label><input type="tel" id="ap-phone" required
+              <div class="frow"><label for="ap-phone">Contact Number *</label><input type="tel" id="ap-phone" name="applicant_phone" required
                   placeholder="10-digit mobile number"><span class="err" id="ap-phone-err">Please enter your mobile
                   number</span></div>
               <div class="frow"><label for="ap-role">Interested Role *</label>
-                <select id="ap-role" required>
+                <select id="ap-role" name="interested_role" required>
                   <option value="" disabled selected>Select a role</option>
                   <option>Engineer</option>
                   <option>Technician</option>
@@ -2527,7 +2527,7 @@
                       <path
                         d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
                     </svg><span class="fultxt">Choose document (PDF, DOC)...</span></label>
-                  <input type="file" id="ap-resume" accept=".pdf,.doc,.docx" required class="fih">
+                  <input type="file" id="ap-resume" name="resume_file" accept=".pdf,.doc,.docx" required class="fih">
                 </div>
                 <span class="err" id="ap-resume-err">Please upload your resume</span>
               </div>
@@ -2869,17 +2869,22 @@
         return ok;
       }
 
-      /* ── EMAILJS INIT ── */
-      try {
-        emailjs.init({ publicKey: 'NmLcJ1YZnGwVv_uxz' });
-      } catch (err) { console.warn('EmailJS load error:', err); }
+      /* ── FORM SUBMISSION via own API (no third-party, no email app) ── */
 
-      const EJS_SVC = 'service_qbct14w';
-      const EJS_IDEA = 'template_now7hir';
-      const EJS_APPLY = 'template_z4vd2c9';
+      // Convert file to base64
+      function fileToBase64(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => {
+            const base64 = reader.result.split(',')[1]; // remove data:...;base64, prefix
+            resolve({ name: file.name, data: base64, type: file.type });
+          };
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+      }
 
-      /* ── CAREERS — EmailJS silent send ── */
-      window.handleCareer = function (e, fid) {
+      window.handleCareer = async function (e, fid) {
         e.preventDefault();
         const form = document.getElementById(fid);
         if (!form || !vForm(form)) return;
@@ -2889,45 +2894,60 @@
         const btn = form.querySelector('button[type="submit"]');
         const orig = btn ? btn.textContent : '';
 
-        // Collect fields
-        let params;
+        // Collect form fields
+        let formType, fields, attachment = null;
+
         if (fid === 'idea-form') {
+          formType = 'idea';
+          fields = {
+            student_name: (document.getElementById('idea-name') || {}).value || '',
+            student_email: (document.getElementById('idea-email') || {}).value || '',
+            project_title: (document.getElementById('idea-title') || {}).value || '',
+            project_desc: (document.getElementById('idea-desc') || {}).value || ''
+          };
           const fi = document.getElementById('idea-file');
-          params = {
-            student_name: (document.getElementById('idea-name') || { value: '' }).value.trim(),
-            student_email: (document.getElementById('idea-email') || { value: '' }).value.trim(),
-            project_title: (document.getElementById('idea-title') || { value: '' }).value.trim(),
-            project_desc: (document.getElementById('idea-desc') || { value: '' }).value.trim(),
-            pdf_file: fi && fi.files && fi.files.length ? fi.files[0].name : '(none)'
-          };
+          if (fi && fi.files && fi.files.length > 0) {
+            attachment = await fileToBase64(fi.files[0]);
+          }
         } else {
-          const fi = document.getElementById('ap-resume');
-          params = {
-            applicant_name: (document.getElementById('ap-name') || { value: '' }).value.trim(),
-            applicant_email: (document.getElementById('ap-email') || { value: '' }).value.trim(),
-            applicant_phone: (document.getElementById('ap-phone') || { value: '' }).value.trim(),
-            interested_role: (document.getElementById('ap-role') || { value: '' }).value.trim(),
-            resume_file: fi && fi.files && fi.files.length ? fi.files[0].name : '(none)'
+          formType = 'apply';
+          fields = {
+            applicant_name: (document.getElementById('ap-name') || {}).value || '',
+            applicant_email: (document.getElementById('ap-email') || {}).value || '',
+            applicant_phone: (document.getElementById('ap-phone') || {}).value || '',
+            interested_role: (document.getElementById('ap-role') || {}).value || ''
           };
+          const fi = document.getElementById('ap-resume');
+          if (fi && fi.files && fi.files.length > 0) {
+            attachment = await fileToBase64(fi.files[0]);
+          }
         }
 
-        // Disable button
-        if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+        // Disable button & show sending state
+        if (btn) { btn.disabled = true; btn.textContent = 'Sending\u2026'; }
 
-        const tmpl = fid === 'idea-form' ? EJS_IDEA : EJS_APPLY;
+        try {
+          const res = await fetch('/api/send-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ formType, fields, attachment })
+          });
+          const data = await res.json();
 
-        emailjs.send(EJS_SVC, tmpl, params)
-          .then(() => {
-            if (btn) { btn.disabled = false; btn.textContent = orig; }
+          if (btn) { btn.disabled = false; btn.textContent = orig; }
+
+          if (data.success) {
             if (msg) { msg.style.display = 'block'; msg.classList.add('spop'); }
             form.reset(); bindFiles(form);
             setTimeout(() => { if (msg) { msg.style.display = 'none'; msg.classList.remove('spop'); } }, 5000);
-          })
-          .catch(err => {
-            console.error('EmailJS send failed:', err);
-            if (btn) { btn.disabled = false; btn.textContent = orig; }
-            alert('⚠️ Could not send. Please email us at alterventionsolutions@gmail.com');
-          });
+          } else {
+            alert('\u26a0\ufe0f Could not send: ' + (data.error || 'Unknown error') + '\n\nPlease email us at alterventionsolutions@gmail.com');
+          }
+        } catch (err) {
+          console.error('Form send failed:', err);
+          if (btn) { btn.disabled = false; btn.textContent = orig; }
+          alert('\u26a0\ufe0f Network error. Please check your connection and try again, or email us at alterventionsolutions@gmail.com');
+        }
       };
 
       /* ── FEEDBACK ── */

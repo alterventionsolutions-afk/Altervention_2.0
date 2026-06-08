@@ -2932,7 +2932,16 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ formType, fields, attachment })
           });
-          const data = await res.json();
+
+          let data;
+          const contentType = res.headers.get('content-type');
+          if (contentType && contentType.includes('application/json')) {
+            data = await res.json();
+          } else {
+            const text = await res.text();
+            console.error('Non-JSON response:', text);
+            data = { success: false, error: `Server error (${res.status}): ${text.substring(0, 100)}` };
+          }
 
           if (btn) { btn.disabled = false; btn.textContent = orig; }
 

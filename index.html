@@ -1601,6 +1601,225 @@
       line-height: 1.6
     }
 
+    /* ═══════ OUR WORKS GALLERY ═══════ */
+    .works-grid {
+      columns: 3;
+      column-gap: 20px;
+      margin-top: 52px
+    }
+
+    .works-item {
+      break-inside: avoid;
+      margin-bottom: 20px;
+      border-radius: var(--r);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      box-shadow: var(--sh-sm);
+      border: 1px solid var(--border);
+      transition: var(--t);
+      background: var(--off)
+    }
+
+    .works-item:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: var(--sh-lg);
+      border-color: rgba(249, 115, 22, .35)
+    }
+
+    .works-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform .5s var(--ease), filter .4s var(--ease)
+    }
+
+    .works-item:hover img {
+      transform: scale(1.06);
+      filter: brightness(1.05)
+    }
+
+    .works-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, .75) 0%, rgba(15, 23, 42, .15) 40%, transparent 100%);
+      opacity: 0;
+      transition: opacity .35s var(--ease);
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      pointer-events: none
+    }
+
+    .works-item:hover .works-overlay {
+      opacity: 1
+    }
+
+    .works-overlay-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(.7);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(249, 115, 22, .9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: all .35s var(--ease);
+      box-shadow: 0 8px 24px rgba(249, 115, 22, .4)
+    }
+
+    .works-item:hover .works-overlay-icon {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1)
+    }
+
+    .works-overlay-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: #fff
+    }
+
+    .works-count {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 600
+    }
+
+    .works-count span {
+      color: var(--orange);
+      font-weight: 800;
+      font-size: 18px
+    }
+
+    /* ── Lightbox ── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(4, 8, 28, .92);
+      backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s var(--ease)
+    }
+
+    .lightbox.lb-active {
+      opacity: 1;
+      pointer-events: all
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: var(--r);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .6);
+      transform: scale(.9);
+      transition: transform .4s var(--ease);
+      object-fit: contain
+    }
+
+    .lightbox.lb-active img {
+      transform: scale(1)
+    }
+
+    .lb-close {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .2);
+      color: #fff;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--t);
+      z-index: 10001
+    }
+
+    .lb-close:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      transform: rotate(90deg) scale(1.1)
+    }
+
+    .lb-prev,
+    .lb-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .18);
+      color: #fff;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--t);
+      z-index: 10001
+    }
+
+    .lb-prev { left: 24px }
+    .lb-next { right: 24px }
+
+    .lb-prev:hover,
+    .lb-next:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      transform: translateY(-50%) scale(1.1)
+    }
+
+    .lb-counter {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, .65);
+      font-family: var(--fh);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 8px 20px;
+      border-radius: var(--rp);
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .12);
+      backdrop-filter: blur(8px)
+    }
+
+    @media(max-width:1024px) {
+      .works-grid { columns: 2 }
+    }
+
+    @media(max-width:768px) {
+      .works-grid { columns: 2; column-gap: 12px }
+      .works-item { margin-bottom: 12px }
+      .lb-prev, .lb-next { width: 40px; height: 40px; font-size: 16px }
+      .lb-prev { left: 12px }
+      .lb-next { right: 12px }
+    }
+
+    @media(max-width:480px) {
+      .works-grid { columns: 1 }
+      .lb-prev, .lb-next { display: none }
+    }
+
     /* ═══════ FOOTER ═══════ */
     footer {
       background: linear-gradient(135deg, #020617 0%, #0f172a 55%, #172554 100%);
@@ -2023,6 +2242,7 @@
         <li><a class="nl active" data-page="home" onclick="showPage('home')">Home</a></li>
         <li><a class="nl" data-page="products" onclick="showPage('products')">Products</a></li>
         <li><a class="nl" data-page="services" onclick="showPage('services')">Services</a></li>
+        <li><a class="nl" data-page="ourworks" onclick="showPage('ourworks')">Our Works</a></li>
         <li><a class="nl" data-page="careers" onclick="showPage('careers')">Careers</a></li>
         <li><a class="nl" data-page="feedback" onclick="showPage('feedback')">Feedback</a></li>
         <li><a class="nl" data-page="contact" onclick="showPage('contact')">Contact Us</a></li>
@@ -2034,6 +2254,7 @@
     <a class="mnl active" data-page="home" onclick="showPage('home')">Home</a>
     <a class="mnl" data-page="products" onclick="showPage('products')">Products</a>
     <a class="mnl" data-page="services" onclick="showPage('services')">Services</a>
+    <a class="mnl" data-page="ourworks" onclick="showPage('ourworks')">Our Works</a>
     <a class="mnl" data-page="careers" onclick="showPage('careers')">Careers</a>
     <a class="mnl" data-page="feedback" onclick="showPage('feedback')">Feedback</a>
     <a class="mnl" data-page="contact" onclick="showPage('contact')">Contact Us</a>
@@ -2196,6 +2417,7 @@
               <li><a onclick="showPage('home')">Home</a></li>
               <li><a onclick="showPage('products')">Products</a></li>
               <li><a onclick="showPage('services')">Services</a></li>
+              <li><a onclick="showPage('ourworks')">Our Works</a></li>
               <li><a onclick="showPage('careers')">Careers</a></li>
               <li><a onclick="showPage('feedback')">Feedback</a></li>
               <li><a onclick="showPage('contact')">Contact Us</a></li>
@@ -2328,6 +2550,7 @@
               <li><a onclick="showPage('home')">Home</a></li>
               <li><a onclick="showPage('products')">Products</a></li>
               <li><a onclick="showPage('services')">Services</a></li>
+              <li><a onclick="showPage('ourworks')">Our Works</a></li>
               <li><a onclick="showPage('careers')">Careers</a></li>
               <li><a onclick="showPage('feedback')">Feedback</a></li>
               <li><a onclick="showPage('contact')">Contact Us</a></li>
@@ -2411,6 +2634,14 @@
             </div><a href="https://wa.me/918667278388" target="_blank" class="btn btn-o">&#x1F4F2; Inquire on
               WhatsApp</a>
           </div>
+          <div class="svc rv" style="--rd:460ms">
+            <div><span class="sico">&#x1F4BB;</span>
+              <h3 class="stitle2">Website Development</h3>
+              <p class="sdesc">Professional, responsive websites built with modern frameworks and clean code.</p><span
+                class="pbadge">Starts from &#x20B9;2999</span>
+            </div><a href="https://wa.me/918667278388" target="_blank" class="btn btn-o">&#x1F4F2; Inquire on
+              WhatsApp</a>
+          </div>
         </div>
       </div>
     </section>
@@ -2427,6 +2658,7 @@
               <li><a onclick="showPage('home')">Home</a></li>
               <li><a onclick="showPage('products')">Products</a></li>
               <li><a onclick="showPage('services')">Services</a></li>
+              <li><a onclick="showPage('ourworks')">Our Works</a></li>
               <li><a onclick="showPage('careers')">Careers</a></li>
               <li><a onclick="showPage('feedback')">Feedback</a></li>
               <li><a onclick="showPage('contact')">Contact Us</a></li>
@@ -2551,6 +2783,7 @@
               <li><a onclick="showPage('home')">Home</a></li>
               <li><a onclick="showPage('products')">Products</a></li>
               <li><a onclick="showPage('services')">Services</a></li>
+              <li><a onclick="showPage('ourworks')">Our Works</a></li>
               <li><a onclick="showPage('careers')">Careers</a></li>
               <li><a onclick="showPage('feedback')">Feedback</a></li>
               <li><a onclick="showPage('contact')">Contact Us</a></li>
@@ -2628,6 +2861,7 @@
               <li><a onclick="showPage('home')">Home</a></li>
               <li><a onclick="showPage('products')">Products</a></li>
               <li><a onclick="showPage('services')">Services</a></li>
+              <li><a onclick="showPage('ourworks')">Our Works</a></li>
               <li><a onclick="showPage('careers')">Careers</a></li>
               <li><a onclick="showPage('feedback')">Feedback</a></li>
               <li><a onclick="showPage('contact')">Contact Us</a></li>
@@ -2739,6 +2973,7 @@
               <li><a onclick="showPage('home')">Home</a></li>
               <li><a onclick="showPage('products')">Products</a></li>
               <li><a onclick="showPage('services')">Services</a></li>
+              <li><a onclick="showPage('ourworks')">Our Works</a></li>
               <li><a onclick="showPage('careers')">Careers</a></li>
               <li><a onclick="showPage('feedback')">Feedback</a></li>
               <li><a onclick="showPage('contact')">Contact Us</a></li>
@@ -2759,12 +2994,131 @@
     </footer>
   </div>
 
+  <!-- ═══════════════════ OUR WORKS ═══════════════════ -->
+  <div class="pg" id="pg-ourworks">
+    <div class="page-hero">
+      <div class="container" style="position:relative;z-index:1">
+        <span class="slabel rv">PORTFOLIO</span>
+        <h1 class="ph-title rv" style="--rd:80ms">Our Works</h1>
+        <p class="ph-sub rv" style="--rd:160ms">A showcase of our completed projects, installations, and innovations — real solutions delivered to real customers.</p>
+        <div class="breadcrumb rv" style="--rd:220ms"><a onclick="showPage('home')">Home</a><span>&#x203A;</span>Our Works</div>
+      </div>
+    </div>
+    <section style="text-align:center;background:#fff">
+      <div class="container sec-in">
+        <span class="slabel rv">SHOWCASE</span>
+        <h2 class="stitle rv" style="--rd:80ms">Projects We've Delivered</h2>
+        <p class="rv" style="--rd:140ms;color:var(--muted);max-width:620px;margin:0 auto 10px">Every image below represents a real project completed by our team — from smart home installations to student project setups.</p>
+        <div class="works-grid" id="works-grid">
+          <div class="works-item rv" style="--rd:100ms" onclick="openLightbox(0)">
+            <img src="Our_works/WhatsApp Image 2026-06-15 at 5.37.32 PM.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+          </div>
+          <div class="works-item rv" style="--rd:140ms" onclick="openLightbox(1)">
+            <img src="Our_works/WhatsApp Image 2026-06-15 at 5.37.33 PM.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+          </div>
+          <div class="works-item rv" style="--rd:180ms" onclick="openLightbox(2)">
+            <img src="Our_works/WhatsApp Image 2026-06-15 at 5.37.33 PM (1).jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+          </div>
+          <div class="works-item rv" style="--rd:220ms" onclick="openLightbox(3)">
+            <img src="Our_works/WhatsApp Image 2026-06-15 at 5.37.34 PM.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+          </div>
+          <div class="works-item rv" style="--rd:260ms" onclick="openLightbox(4)">
+            <img src="Our_works/WhatsApp Image 2026-06-15 at 5.37.37 PM.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+          </div>
+          <div class="works-item rv" style="--rd:300ms" onclick="openLightbox(5)">
+            <img src="Our_works/WhatsApp Image 2026-06-15 at 5.39.02 PM.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+          </div>
+          <div class="works-item rv" style="--rd:340ms" onclick="openLightbox(6)">
+            <img src="Our_works/WhatsApp Image 2026-06-15 at 5.39.03 PM.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+          </div>
+          <div class="works-item rv" style="--rd:380ms" onclick="openLightbox(7)">
+            <img src="Our_works/WhatsApp Image 2026-06-15 at 5.39.03 PM (1).jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+          </div>
+          <div class="works-item rv" style="--rd:420ms" onclick="openLightbox(8)">
+            <img src="Our_works/WhatsApp Image 2026-06-15 at 5.43.01 PM.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+          </div>
+          <div class="works-item rv" style="--rd:460ms" onclick="openLightbox(9)">
+            <img src="Our_works/WhatsApp Image 2026-06-15 at 5.43.25 PM.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+          </div>
+          <div class="works-item rv" style="--rd:100ms" onclick="openLightbox(10)">
+            <img src="Our_works/WhatsApp Image 2026-06-15 at 5.45.37 PM.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+          </div>
+          <div class="works-item rv" style="--rd:140ms" onclick="openLightbox(11)">
+            <img src="Our_works/WhatsApp Image 2026-06-15 at 5.46.06 PM.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+          </div>
+          <div class="works-item rv" style="--rd:180ms" onclick="openLightbox(12)">
+            <img src="Our_works/WhatsApp Image 2026-06-15 at 5.46.26 PM.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+          </div>
+          <div class="works-item rv" style="--rd:220ms" onclick="openLightbox(13)">
+            <img src="Our_works/WhatsApp Image 2026-06-15 at 5.47.35 PM.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+          </div>
+        </div>
+        <p class="works-count rv" style="--rd:350ms">Showcasing <span>14</span> completed projects and counting</p>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="ftg">
+          <div class="ftbrand"><a class="nav-brand" onclick="showPage('home')"><img src="company_logo.jpeg" alt=""
+                class="brand-logo"><span>ALTERVENTION</span></a>
+            <p class="fttag">Smart Solutions. Real Impact.</p>
+          </div>
+          <div>
+            <h4 class="fttit">Quick Links</h4>
+            <ul class="ftlinks">
+              <li><a onclick="showPage('home')">Home</a></li>
+              <li><a onclick="showPage('products')">Products</a></li>
+              <li><a onclick="showPage('services')">Services</a></li>
+              <li><a onclick="showPage('ourworks')">Our Works</a></li>
+              <li><a onclick="showPage('careers')">Careers</a></li>
+              <li><a onclick="showPage('feedback')">Feedback</a></li>
+              <li><a onclick="showPage('contact')">Contact Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="fttit">Contact</h4>
+            <div class="ftcr"><svg viewBox="0 0 24 24">
+                <path
+                  d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+              </svg>alterventionsolutions@gmail.com</div>
+          </div>
+        </div>
+        <div class="ftbot">
+          <p>&#169; 2025 ALTERVENTION. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ═══════ LIGHTBOX ═══════ -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" onclick="closeLightbox()">&#x2715;</button>
+    <button class="lb-prev" onclick="lbPrev()">&#10094;</button>
+    <button class="lb-next" onclick="lbNext()">&#10095;</button>
+    <img id="lb-img" src="" alt="Work Detail">
+    <div class="lb-counter" id="lb-counter"></div>
+  </div>
+
   <!-- ═══════════════════ JAVASCRIPT ═══════════════════ -->
   <script>
     (function () {
       'use strict';
 
-      const PAGES = ['home', 'products', 'services', 'careers', 'feedback', 'contact'];
+      const PAGES = ['home', 'products', 'services', 'ourworks', 'careers', 'feedback', 'contact'];
       let curPage = 'home';
 
       /* ── PAGE ROUTER ── */
@@ -2997,6 +3351,69 @@
         selR = 0; updStars(0); form.reset(); loadFbs();
         setTimeout(() => { if (sm) { sm.style.display = 'none'; sm.classList.remove('spop'); } }, 5000);
       };
+
+      /* ── LIGHTBOX ── */
+      let lbIndex = 0;
+      let lbImages = [];
+
+      window.openLightbox = function (idx) {
+        if (lbImages.length === 0) {
+          lbImages = Array.from(document.querySelectorAll('#works-grid img')).map(img => img.getAttribute('src'));
+        }
+        lbIndex = idx;
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lb-img');
+        const lbCounter = document.getElementById('lb-counter');
+        if (!lb || !lbImg || !lbCounter) return;
+        lbImg.src = lbImages[lbIndex];
+        lbCounter.textContent = `${lbIndex + 1} / ${lbImages.length}`;
+        lb.classList.add('lb-active');
+        document.body.classList.add('no-scroll');
+      };
+
+      window.closeLightbox = function () {
+        const lb = document.getElementById('lightbox');
+        if (lb) lb.classList.remove('lb-active');
+        document.body.classList.remove('no-scroll');
+      };
+
+      window.lbPrev = function () {
+        if (lbImages.length === 0) return;
+        lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
+        const lbImg = document.getElementById('lb-img');
+        const lbCounter = document.getElementById('lb-counter');
+        if (lbImg) lbImg.src = lbImages[lbIndex];
+        if (lbCounter) lbCounter.textContent = `${lbIndex + 1} / ${lbImages.length}`;
+      };
+
+      window.lbNext = function () {
+        if (lbImages.length === 0) return;
+        lbIndex = (lbIndex + 1) % lbImages.length;
+        const lbImg = document.getElementById('lb-img');
+        const lbCounter = document.getElementById('lb-counter');
+        if (lbImg) lbImg.src = lbImages[lbIndex];
+        if (lbCounter) lbCounter.textContent = `${lbIndex + 1} / ${lbImages.length}`;
+      };
+
+      // Keyboard navigation for Lightbox & close mob menu
+      document.addEventListener('keydown', e => {
+        const lb = document.getElementById('lightbox');
+        if (lb && lb.classList.contains('lb-active')) {
+          if (e.key === 'ArrowLeft') window.lbPrev();
+          else if (e.key === 'ArrowRight') window.lbNext();
+          else if (e.key === 'Escape') window.closeLightbox();
+        }
+      });
+
+      // Close lightbox on click outside the image
+      document.addEventListener('DOMContentLoaded', () => {
+        const lb = document.getElementById('lightbox');
+        if (lb) {
+          lb.addEventListener('click', e => {
+            if (e.target === lb) window.closeLightbox();
+          });
+        }
+      });
 
       /* ── INIT ── */
       document.addEventListener('DOMContentLoaded', () => {

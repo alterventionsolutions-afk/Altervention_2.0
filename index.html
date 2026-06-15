@@ -1776,8 +1776,13 @@
       z-index: 10001
     }
 
-    .lb-prev { left: 24px }
-    .lb-next { right: 24px }
+    .lb-prev {
+      left: 24px
+    }
+
+    .lb-next {
+      right: 24px
+    }
 
     .lb-prev:hover,
     .lb-next:hover {
@@ -1804,20 +1809,46 @@
     }
 
     @media(max-width:1024px) {
-      .works-grid { columns: 2 }
+      .works-grid {
+        columns: 2
+      }
     }
 
     @media(max-width:768px) {
-      .works-grid { columns: 2; column-gap: 12px }
-      .works-item { margin-bottom: 12px }
-      .lb-prev, .lb-next { width: 40px; height: 40px; font-size: 16px }
-      .lb-prev { left: 12px }
-      .lb-next { right: 12px }
+      .works-grid {
+        columns: 2;
+        column-gap: 12px
+      }
+
+      .works-item {
+        margin-bottom: 12px
+      }
+
+      .lb-prev,
+      .lb-next {
+        width: 40px;
+        height: 40px;
+        font-size: 16px
+      }
+
+      .lb-prev {
+        left: 12px
+      }
+
+      .lb-next {
+        right: 12px
+      }
     }
 
     @media(max-width:480px) {
-      .works-grid { columns: 1 }
-      .lb-prev, .lb-next { display: none }
+      .works-grid {
+        columns: 1
+      }
+
+      .lb-prev,
+      .lb-next {
+        display: none
+      }
     }
 
     /* ═══════ FOOTER ═══════ */
@@ -2634,14 +2665,6 @@
             </div><a href="https://wa.me/918667278388" target="_blank" class="btn btn-o">&#x1F4F2; Inquire on
               WhatsApp</a>
           </div>
-          <div class="svc rv" style="--rd:460ms">
-            <div><span class="sico">&#x1F4BB;</span>
-              <h3 class="stitle2">Website Development</h3>
-              <p class="sdesc">Professional, responsive websites built with modern frameworks and clean code.</p><span
-                class="pbadge">Starts from &#x20B9;2999</span>
-            </div><a href="https://wa.me/918667278388" target="_blank" class="btn btn-o">&#x1F4F2; Inquire on
-              WhatsApp</a>
-          </div>
         </div>
       </div>
     </section>
@@ -2701,17 +2724,21 @@
             <p class="ccdesc">Students can submit project ideas. If the idea becomes a product that sells, the student
               may receive benefits or shares based on their contribution.</p>
             <form class="cform" id="idea-form" onsubmit="handleCareer(event,'idea-form')">
-              <div class="frow"><label for="idea-name">Student Name *</label><input type="text" id="idea-name" name="student_name" required
-                  placeholder="Your full name"><span class="err" id="idea-name-err">Please enter your name</span></div>
-              <div class="frow"><label for="idea-email">Email ID *</label><input type="email" id="idea-email" name="student_email" required
-                  placeholder="your.email@gmail.com"><span class="err" id="idea-email-err">Please enter a valid
+              <div class="frow"><label for="idea-name">Student Name *</label><input type="text" id="idea-name"
+                  name="student_name" required placeholder="Your full name"><span class="err" id="idea-name-err">Please
+                  enter your name</span></div>
+              <div class="frow"><label for="idea-email">Email ID *</label><input type="email" id="idea-email"
+                  name="student_email" required placeholder="your.email@gmail.com"><span class="err"
+                  id="idea-email-err">Please enter a valid
                   email</span></div>
-              <div class="frow"><label for="idea-title">Project Title *</label><input type="text" id="idea-title" name="project_title"
-                  required placeholder="Name of your project idea"><span class="err" id="idea-title-err">Please enter
+              <div class="frow"><label for="idea-title">Project Title *</label><input type="text" id="idea-title"
+                  name="project_title" required placeholder="Name of your project idea"><span class="err"
+                  id="idea-title-err">Please enter
                   project title</span></div>
-              <div class="frow"><label for="idea-desc">Project Description *</label><textarea id="idea-desc" name="project_desc" rows="4"
-                  required placeholder="Describe your project, features, and target audience..."></textarea><span
-                  class="err" id="idea-desc-err">Please describe your project</span></div>
+              <div class="frow"><label for="idea-desc">Project Description *</label><textarea id="idea-desc"
+                  name="project_desc" rows="4" required
+                  placeholder="Describe your project, features, and target audience..."></textarea><span class="err"
+                  id="idea-desc-err">Please describe your project</span></div>
               <div class="frow"><label>Upload PDF Concept</label>
                 <div class="fuw"><label for="idea-file" class="ful"><svg class="uico" viewBox="0 0 24 24">
                       <path
@@ -2730,13 +2757,16 @@
             <p class="ccdesc">Join us as an engineer, technician, content creator, editor, marketer, project
               coordinator, or customer support executive.</p>
             <form class="cform" id="apply-form" onsubmit="handleCareer(event,'apply-form')">
-              <div class="frow"><label for="ap-name">Name *</label><input type="text" id="ap-name" name="applicant_name" required
-                  placeholder="Your full name"><span class="err" id="ap-name-err">Please enter your name</span></div>
-              <div class="frow"><label for="ap-email">Email ID *</label><input type="email" id="ap-email" name="applicant_email" required
-                  placeholder="your.email@gmail.com"><span class="err" id="ap-email-err">Please enter a valid
+              <div class="frow"><label for="ap-name">Name *</label><input type="text" id="ap-name" name="applicant_name"
+                  required placeholder="Your full name"><span class="err" id="ap-name-err">Please enter your name</span>
+              </div>
+              <div class="frow"><label for="ap-email">Email ID *</label><input type="email" id="ap-email"
+                  name="applicant_email" required placeholder="your.email@gmail.com"><span class="err"
+                  id="ap-email-err">Please enter a valid
                   email</span></div>
-              <div class="frow"><label for="ap-phone">Contact Number *</label><input type="tel" id="ap-phone" name="applicant_phone" required
-                  placeholder="10-digit mobile number"><span class="err" id="ap-phone-err">Please enter your mobile
+              <div class="frow"><label for="ap-phone">Contact Number *</label><input type="tel" id="ap-phone"
+                  name="applicant_phone" required placeholder="10-digit mobile number"><span class="err"
+                  id="ap-phone-err">Please enter your mobile
                   number</span></div>
               <div class="frow"><label for="ap-role">Interested Role *</label>
                 <select id="ap-role" name="interested_role" required>
@@ -3000,71 +3030,144 @@
       <div class="container" style="position:relative;z-index:1">
         <span class="slabel rv">PORTFOLIO</span>
         <h1 class="ph-title rv" style="--rd:80ms">Our Works</h1>
-        <p class="ph-sub rv" style="--rd:160ms">A showcase of our completed projects, installations, and innovations — real solutions delivered to real customers.</p>
-        <div class="breadcrumb rv" style="--rd:220ms"><a onclick="showPage('home')">Home</a><span>&#x203A;</span>Our Works</div>
+        <p class="ph-sub rv" style="--rd:160ms">A showcase of our completed projects, installations, and innovations —
+          real solutions delivered to real customers.</p>
+        <div class="breadcrumb rv" style="--rd:220ms"><a onclick="showPage('home')">Home</a><span>&#x203A;</span>Our
+          Works</div>
       </div>
     </div>
     <section style="text-align:center;background:#fff">
       <div class="container sec-in">
         <span class="slabel rv">SHOWCASE</span>
         <h2 class="stitle rv" style="--rd:80ms">Projects We've Delivered</h2>
-        <p class="rv" style="--rd:140ms;color:var(--muted);max-width:620px;margin:0 auto 10px">Every image below represents a real project completed by our team — from smart home installations to student project setups.</p>
+        <p class="rv" style="--rd:140ms;color:var(--muted);max-width:620px;margin:0 auto 10px">Every image below
+          represents a real project completed by our team — from smart home installations to student project setups.</p>
         <div class="works-grid" id="works-grid">
           <div class="works-item rv" style="--rd:100ms" onclick="openLightbox(0)">
-            <img src="Our_works/work1.jpeg" alt="Altervention Project Work" loading="lazy">
-            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+            <img src="public/Our_works/work1.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay">
+              <div class="works-overlay-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                </svg></div>
+            </div>
           </div>
           <div class="works-item rv" style="--rd:140ms" onclick="openLightbox(1)">
-            <img src="Our_works/work2.jpeg" alt="Altervention Project Work" loading="lazy">
-            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+            <img src="public/Our_works/work2.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay">
+              <div class="works-overlay-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                </svg></div>
+            </div>
           </div>
           <div class="works-item rv" style="--rd:180ms" onclick="openLightbox(2)">
-            <img src="Our_works/work3.jpeg" alt="Altervention Project Work" loading="lazy">
-            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+            <img src="public/Our_works/work3.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay">
+              <div class="works-overlay-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                </svg></div>
+            </div>
           </div>
           <div class="works-item rv" style="--rd:220ms" onclick="openLightbox(3)">
-            <img src="Our_works/work4.jpeg" alt="Altervention Project Work" loading="lazy">
-            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+            <img src="public/Our_works/work4.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay">
+              <div class="works-overlay-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                </svg></div>
+            </div>
           </div>
           <div class="works-item rv" style="--rd:260ms" onclick="openLightbox(4)">
-            <img src="Our_works/work5.jpeg" alt="Altervention Project Work" loading="lazy">
-            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+            <img src="public/Our_works/work5.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay">
+              <div class="works-overlay-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                </svg></div>
+            </div>
           </div>
           <div class="works-item rv" style="--rd:300ms" onclick="openLightbox(5)">
-            <img src="Our_works/work6.jpeg" alt="Altervention Project Work" loading="lazy">
-            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+            <img src="public/Our_works/work6.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay">
+              <div class="works-overlay-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                </svg></div>
+            </div>
           </div>
           <div class="works-item rv" style="--rd:340ms" onclick="openLightbox(6)">
-            <img src="Our_works/work7.jpeg" alt="Altervention Project Work" loading="lazy">
-            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+            <img src="public/Our_works/work7.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay">
+              <div class="works-overlay-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                </svg></div>
+            </div>
           </div>
           <div class="works-item rv" style="--rd:380ms" onclick="openLightbox(7)">
-            <img src="Our_works/work8.jpeg" alt="Altervention Project Work" loading="lazy">
-            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+            <img src="public/Our_works/work8.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay">
+              <div class="works-overlay-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                </svg></div>
+            </div>
           </div>
           <div class="works-item rv" style="--rd:420ms" onclick="openLightbox(8)">
-            <img src="Our_works/work9.jpeg" alt="Altervention Project Work" loading="lazy">
-            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+            <img src="public/Our_works/work9.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay">
+              <div class="works-overlay-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                </svg></div>
+            </div>
           </div>
           <div class="works-item rv" style="--rd:460ms" onclick="openLightbox(9)">
-            <img src="Our_works/work10.jpeg" alt="Altervention Project Work" loading="lazy">
-            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+            <img src="public/Our_works/work10.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay">
+              <div class="works-overlay-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                </svg></div>
+            </div>
           </div>
           <div class="works-item rv" style="--rd:100ms" onclick="openLightbox(10)">
-            <img src="Our_works/work11.jpeg" alt="Altervention Project Work" loading="lazy">
-            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+            <img src="public/Our_works/work11.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay">
+              <div class="works-overlay-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                </svg></div>
+            </div>
           </div>
           <div class="works-item rv" style="--rd:140ms" onclick="openLightbox(11)">
-            <img src="Our_works/work12.jpeg" alt="Altervention Project Work" loading="lazy">
-            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+            <img src="public/Our_works/work12.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay">
+              <div class="works-overlay-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                </svg></div>
+            </div>
           </div>
           <div class="works-item rv" style="--rd:180ms" onclick="openLightbox(12)">
-            <img src="Our_works/work13.jpeg" alt="Altervention Project Work" loading="lazy">
-            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+            <img src="public/Our_works/work13.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay">
+              <div class="works-overlay-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                </svg></div>
+            </div>
           </div>
           <div class="works-item rv" style="--rd:220ms" onclick="openLightbox(13)">
-            <img src="Our_works/work14.jpeg" alt="Altervention Project Work" loading="lazy">
-            <div class="works-overlay"><div class="works-overlay-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div>
+            <img src="public/Our_works/work14.jpeg" alt="Altervention Project Work" loading="lazy">
+            <div class="works-overlay">
+              <div class="works-overlay-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                </svg></div>
+            </div>
           </div>
         </div>
         <p class="works-count rv" style="--rd:350ms">Showcasing <span>14</span> completed projects and counting</p>

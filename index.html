@@ -1815,12 +1815,33 @@
 
     @media(max-width:768px) {
       .works-grid {
-        columns: 2;
-        column-gap: 12px
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        gap: 16px;
+        padding: 10px 4px 20px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .works-grid::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .works-grid::-webkit-scrollbar-track {
+        background: rgba(15, 23, 42, 0.05);
+        border-radius: var(--rp);
+      }
+
+      .works-grid::-webkit-scrollbar-thumb {
+        background: var(--orange);
+        border-radius: var(--rp);
       }
 
       .works-item {
-        margin-bottom: 12px
+        flex: 0 0 85%;
+        scroll-snap-align: start;
+        margin-bottom: 0;
       }
 
       .lb-prev,
@@ -1840,10 +1861,6 @@
     }
 
     @media(max-width:480px) {
-      .works-grid {
-        columns: 1
-      }
-
       .lb-prev,
       .lb-next {
         display: none

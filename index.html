@@ -76,13 +76,11 @@
 
     @keyframes pgIn {
       from {
-        opacity: 0;
-        transform: translateY(6px)
+        opacity: 0
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0)
+        opacity: 1
       }
     }
 
@@ -1718,13 +1716,14 @@
     }
 
     .lightbox img {
+      width: auto;
+      height: auto;
       max-width: 90vw;
       max-height: 85vh;
       border-radius: var(--r);
       box-shadow: 0 24px 80px rgba(0, 0, 0, .6);
       transform: scale(.9);
-      transition: transform .4s var(--ease);
-      object-fit: contain
+      transition: transform .4s var(--ease)
     }
 
     .lightbox.lb-active img {
